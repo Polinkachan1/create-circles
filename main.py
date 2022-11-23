@@ -37,7 +37,7 @@ class MainWindow(QMainWindow):
         qr.end()
 
     def draw_circle(self, qr):
-        qr.setBrush(QColor('yellow'))
+        qr.setBrush(QColor.fromHsv(randint(0, 359), 255, 255, 255))
         diameter = randint(70, 200)
         start = 60
         qr.drawEllipse(start, start, start + diameter, start + diameter)
