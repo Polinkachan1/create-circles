@@ -9,14 +9,13 @@ from PyQt5.QtGui import (
     QPainter,
     QColor
 )
+from window_ui import Ui_MainWindow
 
-
-class MainWindow(QMainWindow):
+class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self) -> None:
         super().__init__()
         self._should_draw = False
-        self._coordinates = 0, 0
-        uic.loadUi('window.ui', self)
+        self.setupUi(self)
         self._init_ui()
         self._should_draw = False
 
@@ -41,8 +40,6 @@ class MainWindow(QMainWindow):
         diameter = randint(70, 200)
         start = 60
         qr.drawEllipse(start, start, start + diameter, start + diameter)
-
-
 
 
 app = QApplication(sys.argv)
